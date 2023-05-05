@@ -14,7 +14,7 @@ steps:
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'K8s'
-    command: 'apply'
+    command: 'apply -f'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
     azureSubscriptionEndpointForSecrets: 'Azure subscription 1(977812bc-0cfb-4c57-8912-a7804ccf8fba)'
