@@ -10,11 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Kubernetes@1
+- task: Bash@3
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'K8s'
-    command: 'apply -f'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
-    azureSubscriptionEndpointForSecrets: 'Azure subscription 1(977812bc-0cfb-4c57-8912-a7804ccf8fba)'
+    targetType: 'inline'
+    script: |
+      kubectl apply -f **/*deployment.yml
+      kubectl apply -f **/*service.yml
+    workingDirectory: '$(system.defaultworkingdirectory)'
