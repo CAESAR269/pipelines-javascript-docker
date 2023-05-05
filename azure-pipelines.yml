@@ -27,4 +27,5 @@ steps:
     script: |
       kubectl apply -f **/*deployment.yml
       kubectl apply -f **/*service.yml
+      kubectl get svc
     workingDirectory: '$(system.defaultworkingdirectory)'
